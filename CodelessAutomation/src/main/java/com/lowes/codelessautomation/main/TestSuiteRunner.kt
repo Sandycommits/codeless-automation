@@ -1,6 +1,8 @@
 package com.lowes.codelessautomation.main
 
 import com.lowes.codelessautomation.commands.BackClickCommand
+import com.lowes.codelessautomation.commands.DescendantViewClickCommand
+import com.lowes.codelessautomation.commands.DescendantViewMatchesCommand
 import com.lowes.codelessautomation.commands.IsVisibleCommand
 import com.lowes.codelessautomation.commands.LaunchCommand
 import com.lowes.codelessautomation.commands.MatchesWithCommand
@@ -42,6 +44,12 @@ object TestSuiteRunner {
                         ReplaceTextCommand(
                             it
                         )
+                    )
+                    Action.AT_POSITION_ON_VIEW.action -> instructionExecutor.addToQueue(
+                        DescendantViewMatchesCommand(it)
+                    )
+                    Action.AT_POSITION_ON_CLICK.action -> instructionExecutor.addToQueue(
+                        DescendantViewClickCommand(it)
                     )
                 }
             }

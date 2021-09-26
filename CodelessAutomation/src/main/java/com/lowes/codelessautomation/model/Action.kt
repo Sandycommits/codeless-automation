@@ -20,4 +20,6 @@ enum class Action(val action: String) {
     PERFORM_CLICK("performClick"),
     WAIT_MORE("waitMore"),
     WAIT_LESS("waitLess"),
+    AT_POSITION_ON_VIEW("atPositionOnView"),
+    AT_POSITION_ON_CLICK("atPositionOnClick")
 }

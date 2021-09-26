@@ -36,6 +36,11 @@ object CommonUtils {
             getPackageName()
         )
 
+    fun getParentAndDescendantId(id: String) : Triple<Int, Int, Int> {
+        val identifiers = id.split("_")
+        return Triple(getId(identifiers[0]), getId(identifiers[1]), Integer.parseInt(identifiers[2]))
+    }
+
     fun readExcelFileFromAssets(myInput: InputStream): MutableMap<String, List<Instruction>> {
         val testCasesMap = mutableMapOf<String, List<Instruction>>()
         try {
