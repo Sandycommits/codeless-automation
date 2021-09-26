@@ -39,7 +39,7 @@ class RecyclerViewAction(recyclerViewId: Int) {
             }
         }
 
-        fun hasItemAtPosition(position: Int, matcher: Matcher<View>) : Matcher<View> {
+        fun hasItemAtPosition(position: Int, childId: Int, matcher: Matcher<View>) : Matcher<View> {
             return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
 
                 override fun describeTo(description: Description?) {
@@ -49,7 +49,7 @@ class RecyclerViewAction(recyclerViewId: Int) {
 
                 override fun matchesSafely(item: RecyclerView?): Boolean {
                     val viewHolder = item?.findViewHolderForAdapterPosition(position)
-                    return matcher.matches(viewHolder?.itemView)
+                    return matcher.matches(viewHolder?.itemView?.findViewById(childId))
                 }
             }
         }
