@@ -25,7 +25,7 @@ class DescendantViewMatchesCommand(private val instruction: Instruction) : Comma
         onView(withId(triple.first)).check(
             matches(
                 hasItemAtPosition(
-                    triple.third, triple.second
+                    triple.third, triple.second,
                     withText(instruction.text)
                 )
             )
